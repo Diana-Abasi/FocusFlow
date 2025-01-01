@@ -1,26 +1,18 @@
 import React from 'react';
+import Confetti from 'react-confetti';
 
-function PositiveReinforcement({ onClose }) {
-  const messages = [
-    'Great job! You’re building a powerful habit.',
-    'Keep up the great work! Small steps lead to big success.',
-    'You’re doing amazing! Stay focused and keep going.',
-  ];
-
-  const randomMessage =
-    messages[Math.floor(Math.random() * messages.length)];
-
+function PositiveReinforcement({ isVisible, message }) {
   return (
-    <div className="positive-reinforcement bg-green-100 p-4 rounded shadow mb-4">
-      <h3 className="text-lg font-bold mb-2">Positive Reinforcement</h3>
-      <p>{randomMessage}</p>
-      <button
-        className="mt-4 bg-green-500 text-white py-2 px-4 rounded"
-        onClick={onClose}
-      >
-        Close
-      </button>
-    </div>
+    <>
+      {isVisible && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl font-bold text-green-600">{message}</h2>
+          </div>
+          <Confetti width={window.innerWidth} height={window.innerHeight} />
+        </div>
+      )}
+    </>
   );
 }
 

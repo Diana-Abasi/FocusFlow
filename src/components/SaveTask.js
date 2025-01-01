@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
 
 function SaveTask({ savedTasks, setSavedTasks }) {
-  const [taskInput, setTaskInput] = useState('');
+  const [taskName, setTaskName] = useState('');
   const [taskTime, setTaskTime] = useState(25);
   const [taskSound, setTaskSound] = useState('');
 
   const addTask = () => {
-    if (taskInput.trim()) {
-      setSavedTasks([
-        ...savedTasks,
-        { name: taskInput.trim(), time: taskTime, sound: taskSound },
-      ]);
-      setTaskInput('');
+    if (taskName.trim() && taskTime > 0) {
+      const newTask = {
+        name: taskName.trim(),
+        time: taskTime,
+        sound: taskSound,
+      };
+      setSavedTasks([...savedTasks, newTask]);
+      setTaskName('');
       setTaskTime(25);
       setTaskSound('');
     }
   };
 
   return (
-    <section className="save-task bg-white p-6 rounded-lg shadow-lg text-black w-full max-w-md">
+    <section className="save-task bg-gradient-to-br from-white to-gray-100 p-6 rounded-lg shadow-lg text-black w-full max-w-md">
       <h2 className="text-xl font-bold mb-4">Save a Task</h2>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Task Name"
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
           className="p-2 border rounded"
         />
         <input
           type="number"
           min="1"
-          max="120"
+          max="60"
           value={taskTime}
           onChange={(e) => setTaskTime(Number(e.target.value))}
           className="p-2 border rounded"
-          placeholder="Time (in minutes)"
         />
         <select
           value={taskSound}
@@ -49,7 +50,7 @@ function SaveTask({ savedTasks, setSavedTasks }) {
         </select>
         <button
           onClick={addTask}
-          className="py-2 px-4 bg-blue-500 text-white rounded"
+          className="py-2 px-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded shadow-lg hover:shadow-xl"
         >
           Save Task
         </button>
