@@ -1,0 +1,43 @@
+{
+  "name": "focusflow",
+  "version": "1.0.0",
+  "description": "A minimalist productivity app for managing tasks and focus sessions.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "productivity",
+    "focus",
+    "tasks"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-h5-audio-player": "^3.9.3",
+    "react-scripts": "5.0.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
