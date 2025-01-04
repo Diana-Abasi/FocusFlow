@@ -1,0 +1,9 @@
+# Node modules cache
+node_modules/.cache/
+
+# ESLint cache
+*.eslintcache
+
+# Build-related cache files
+*.pack
+*.pack.old
